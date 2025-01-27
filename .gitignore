@@ -1,0 +1,13 @@
+node_modules/
+coverage/
+dist
+src/test/*.html
+*.sublime-project
+*.sublime-workspace
+.idea/
+*.iml
+*.xml
+npm-debug.log
+*.aux
+*.log
+*.pdf

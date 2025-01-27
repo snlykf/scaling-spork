@@ -1,0 +1,117 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "0.1",
+        "title": "Project Doc",
+        "description": "API documentation for Project."
+    },
+    "externalDocs": {
+        "description": "Swagger 2.0 Spec",
+        "url": "http://swagger.io/specification/"
+    },
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "security": [
+        {
+            "Bearer": []
+        }
+    ],
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header",
+            "description": "Requires a valid JWT token"
+        }
+    },
+    "tags": [
+        {
+            "name": "billing",
+            "description": "Customer billing"
+        },
+        {
+            "name": "auth",
+            "description": "User authentication"
+        }
+    ],
+    "paths": {
+        "/authentication": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "description": "Authenticate user",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authentication",
+                        "in": "body",
+                        "description": "User credentials",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Authentication"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User authenticated",
+                        "schema": {
+                            "$ref": "#/definitions/Token"
+                        }
+                    },
+                    "401": {
+                        "description": "Access denied"
+                    }
+                }
+            }
+        },
+        "/billing/plans": {
+            "get": {
+                "tags": [
+                    "billing"
+                ],
+                "description": "Get available service plans",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of plans"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Authentication": {
+            "type": "object",
+            "properties": {
+                "username": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "Token": {
+            "type": "object",
+            "properties": {
+                "token": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
