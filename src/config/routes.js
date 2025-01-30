@@ -18,4 +18,5 @@ export default function (app) {
     // billing
     // ==============
     app.get('/api/billing/plans', billingCtrl.getPlans);
+    app.get('/api/billing/:username/invoice', billingCtrl.createInvoice);
 }
