@@ -8,4 +8,11 @@ describe('Billing API', () => {
 
             expect(response.text).toEqual('["Free","Pro","Enterprise"]');
     });
+
+    it('should return list of plans', async () => {
+        await authRequest
+            .get('/api/billing/jdoe/invoice')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8');
+    });
 });
