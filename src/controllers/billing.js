@@ -1,9 +1,5 @@
-const mockPlans = [
-    'Free',
-    'Pro',
-    'Enterprise'
-];
+import * as billingRepo from '../repos/billingRepo.js';
 
 export function getPlans(req, res) {
-    res.json(mockPlans);
+    res.json(billingRepo.getPlans());
 }
