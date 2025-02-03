@@ -21,3 +21,5 @@ sequenceDiagram
 The PDF generation and mail sending are taking too long. Users want to see the requested information on the website sooner. The invoice itself does not need to be available immediately with the result.
 
 Improve the system architecture to reduce the time users have to wait for their result.
+
+Mail delivery failures or other errors in the processing should be handled. It is important that every user eventually receives an invoice.
