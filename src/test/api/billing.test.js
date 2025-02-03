@@ -11,7 +11,7 @@ describe('Billing API', () => {
 
     it('should return list of plans', async () => {
         await authRequest
-            .get('/api/billing/jdoe/invoice')
+            .get('/api/billing/test/invoice')
             .expect(200)
             .expect('Content-Type', 'application/json; charset=utf-8');
     });
