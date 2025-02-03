@@ -4,8 +4,8 @@ import jwt from 'jsonwebtoken';
 export const jwtSecret = '123';
 
 export const credentials = {
-    username: 'jdoe',
-    password: 'hunter2'
+    username: 'test',
+    password: 'test'
 };
 
 export const token = jwt.sign({loginName: credentials.user}, jwtSecret, {expiresIn: "10 minutes"});
