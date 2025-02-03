@@ -15,4 +15,12 @@ describe('Billing API', () => {
             .expect(200)
             .expect('Content-Type', 'application/json; charset=utf-8');
     });
+
+    it('should return the invoice as PDF', async () => {
+        await authRequest
+            .get('/api/billing/test/invoicePdf')
+            .expect(200)
+            .expect('Content-Type', /application\/octet-stream/)
+            .expect('Content-disposition', /attachment; filename=invoice.pdf/);
+    });
 });
