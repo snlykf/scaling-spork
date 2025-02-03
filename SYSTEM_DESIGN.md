@@ -1,9 +1,11 @@
 # System Design Interview
 
 ```mermaid
-  graph TD;
-      A-->B;
-      A-->C;
-      B-->D;
-      C-->D;
+sequenceDiagram
+    User->>+Website: Request Invoice PDF
+    Website->>+PdfService: Get PDF
+    PdfService-->>Website: PDF
+    Website->>+EmailService: Send PDF via mail
+    EmailService-->>Website: Mail queued
+    Website-->>User: Result
 ```
