@@ -3,11 +3,13 @@ import supertest from 'supertest';
 import config from '../config/config.js';
 import {token, jwtSecret} from './mock/auth.mock.js';
 import userRepoMock from './mock/userRepo.mock.js';
+import billingRepoMock from './mock/billingRepo.mock.js';
 
 // Use dummy JWT secret during tests
 jest.replaceProperty(config, 'jwtSecret', jwtSecret);
 
 jest.unstable_mockModule('../repos/userRepo.js', () => userRepoMock);
+jest.unstable_mockModule('../repos/billingRepo.js', () => billingRepoMock);
 
 const app = await import('../app.js');
 

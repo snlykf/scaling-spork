@@ -6,7 +6,7 @@ describe('Billing API', () => {
             .get('/api/billing/plans')
             .expect(200);
 
-            expect(response.text).toEqual('["Free","Pro","Enterprise"]');
+            expect(response.text).toEqual('["Free","Non-free"]');
     });
 
     it('should return list of plans', async () => {
